@@ -12,6 +12,8 @@
   let selected = null;
   let details = {};
   const expanded = new Set();
+  const activeTags = new Set();
+  const tagHue = new Map();
 
   async function rpc(fn, body) {
     const res = await fetch(`${SUPABASE_URL}/rest/v1/rpc/${fn}`, {
@@ -62,26 +64,53 @@
     return panel;
   }
 
+  function tagChip(tag, extra = "") {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "tag" + (activeTags.has(tag) ? " active" : "") + extra;
+    b.style.setProperty("--h", tagHue.get(tag));
+    b.textContent = tag;
+    b.setAttribute("aria-pressed", String(activeTags.has(tag)));
+    return b;
+  }
+
+  function toggleTag(tag) {
+    if (activeTags.has(tag)) activeTags.delete(tag); else activeTags.add(tag);
+    render();
+  }
+
+  function renderTagBar() {
+    const bar = $("tag-filter");
+    bar.replaceChildren();
+    for (const tag of tagHue.keys()) {
+      const b = tagChip(tag);
+      const n = topics.filter((t) => t.category === tag).length;
+      b.textContent = `${tag} (${n})`;
+      b.addEventListener("click", () => toggleTag(tag));
+      bar.append(b);
+    }
+    if (activeTags.size) {
+      const clear = document.createElement("button");
+      clear.type = "button";
+      clear.className = "clear";
+      clear.textContent = "Quitar filtros";
+      clear.addEventListener("click", () => { activeTags.clear(); render(); });
+      bar.append(clear);
+    }
+  }
+
   function render() {
     const q = $("search").value.trim().toLowerCase();
-    const cat = $("category").value;
     const onlyFree = $("only-free").checked;
     const visible = topics.filter((t) =>
-      (!cat || t.category === cat) &&
+      (!activeTags.size || activeTags.has(t.category)) &&
       (!onlyFree || !taken.has(t.id)) &&
       (!q || `${t.name} ${t.ref}`.toLowerCase().includes(q)));
 
+    renderTagBar();
     const list = $("list");
     list.replaceChildren();
-    let lastCat = null;
     for (const t of visible) {
-      if (t.category !== lastCat) {
-        const h = document.createElement("h2");
-        h.className = "cat";
-        h.textContent = t.category;
-        list.append(h);
-        lastCat = t.category;
-      }
       const isTaken = taken.has(t.id);
       const isOpen = expanded.has(t.id);
       const row = document.createElement("div");
@@ -98,6 +127,9 @@
       ref.className = "ref";
       ref.textContent = t.ref;
       info.append(name, ref);
+      const rowTag = tagChip(t.category, " small");
+      rowTag.addEventListener("click", (e) => { e.stopPropagation(); toggleTag(t.category); });
+      info.append(rowTag);
       const toggle = () => {
         if (expanded.has(t.id)) expanded.delete(t.id); else expanded.add(t.id);
         render();
@@ -169,14 +201,14 @@
     topics = await (await fetch("topics.json", { cache: "no-cache" })).json();
     details = await fetch("details.json", { cache: "no-cache" }).then((r) => r.json()).catch(() => ({}));
     const cats = [...new Set(topics.map((t) => t.category))];
-    for (const c of cats) $("category").append(new Option(c, c));
+    cats.forEach((c, i) => tagHue.set(c, Math.round((i * 360) / cats.length)));
     try {
       await refreshTaken();
     } catch {
       $("counter").textContent = "No se pudo consultar la disponibilidad. Recarga la página.";
     }
     render();
-    for (const id of ["search", "category", "only-free"]) $(id).addEventListener("input", render);
+    for (const id of ["search", "only-free"]) $(id).addEventListener("input", render);
     $("form").addEventListener("submit", submit);
     $("cancel").addEventListener("click", () => $("dialog").close());
   }
