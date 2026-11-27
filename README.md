@@ -18,4 +18,5 @@ Página estática (GitHub Pages) + Supabase (plan gratuito) para que los alumnos
 ## Limitaciones
 
 - El correo no se verifica; cualquiera podría registrar un correo ajeno. Revisa la tabla contra la lista del grupo.
+- El candado de un tema por correo compara la forma canónica del correo (sin mayúsculas, sin `+etiqueta` y, en Gmail, sin puntos). Un alumno con dos buzones distintos sí podría elegir dos temas.
 - Los temas se validan solo por formato de `id` en el servidor.

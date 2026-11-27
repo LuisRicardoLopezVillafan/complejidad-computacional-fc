@@ -1,14 +1,30 @@
 -- Ejecutar completo en Supabase: SQL Editor -> New query -> Run.
 
+-- Forma canónica del correo para detectar alias: sin mayúsculas, sin el sufijo "+etiqueta"
+-- y, en Gmail, sin puntos (ana.perez+x@gmail.com y anaperez@gmail.com son el mismo buzón).
+create or replace function public.normalize_email(e text)
+returns text
+language sql
+immutable
+as $$
+  select case
+    when split_part(lower(btrim(e)), '@', 2) in ('gmail.com', 'googlemail.com')
+      then replace(split_part(split_part(lower(btrim(e)), '@', 1), '+', 1), '.', '') || '@gmail.com'
+    else split_part(split_part(lower(btrim(e)), '@', 1), '+', 1) || '@' || split_part(lower(btrim(e)), '@', 2)
+  end;
+$$;
+
 create table if not exists public.claims (
   topic_id     text primary key check (topic_id ~ '^[a-z0-9-]{1,60}$'),
   student_name text not null check (char_length(btrim(student_name)) between 3 and 120),
-  email        text not null check (email ~* '^[^@\s]+@[^@\s]+\.[^@\s]+$' and char_length(email) <= 150),
+  email        text not null check (email ~* '^[^@\s]+@[^@\s]+\.[^@\s]+$' and char_length(email) <= 150
+                                    and public.normalize_email(email) ~ '^[^@]+@'),
   created_at   timestamptz not null default now()
 );
 
--- Un alumno, un tema (se compara sin distinguir mayúsculas).
-create unique index if not exists claims_email_unique on public.claims (lower(email));
+-- Candado: un correo (en su forma canónica) solo puede tener un tema.
+drop index if exists public.claims_email_unique;
+create unique index claims_email_unique on public.claims (public.normalize_email(email));
 
 -- La tabla no es accesible directamente con la clave pública; solo vía las funciones de abajo.
 alter table public.claims enable row level security;

@@ -3,7 +3,7 @@
   const $ = (id) => document.getElementById(id);
   const MESSAGES = {
     topic_taken: "Ese tema ya fue elegido por otra persona. Elige otro.",
-    email_already_used: "Ese correo ya tiene un tema registrado.",
+    email_already_used: "Ese correo ya eligió un tema. Para cambiarlo, escribe al profesor.",
     invalid_input: "Revisa tu nombre y correo.",
   };
 
