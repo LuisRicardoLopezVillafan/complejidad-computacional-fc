@@ -39,6 +39,26 @@ as $$
   select topic_id from public.claims;
 $$;
 
+-- Interruptor de la elección. Empieza cerrada; se abre/cierra con:
+--   update public.settings set value = 'true'  where key = 'elections_open';  -- abrir
+--   update public.settings set value = 'false' where key = 'elections_open';  -- cerrar
+create table if not exists public.settings (
+  key   text primary key,
+  value text not null
+);
+insert into public.settings (key, value) values ('elections_open', 'false') on conflict (key) do nothing;
+alter table public.settings enable row level security;
+revoke all on public.settings from anon, authenticated;
+
+create or replace function public.elections_open()
+returns boolean
+language sql
+security definer
+set search_path = public
+as $$
+  select coalesce((select value = 'true' from public.settings where key = 'elections_open'), false);
+$$;
+
 create or replace function public.claim_topic(p_topic text, p_name text, p_email text)
 returns void
 language plpgsql
@@ -48,6 +68,9 @@ as $$
 declare
   c text;
 begin
+  if not public.elections_open() then
+    raise exception 'elections_closed' using errcode = 'P0001';
+  end if;
   insert into public.claims (topic_id, student_name, email)
   values (p_topic, btrim(p_name), btrim(p_email));
 exception
@@ -64,6 +87,8 @@ end;
 $$;
 
 revoke all on function public.taken_topics() from public;
+revoke all on function public.elections_open() from public;
 revoke all on function public.claim_topic(text, text, text) from public;
 grant execute on function public.taken_topics() to anon;
+grant execute on function public.elections_open() to anon;
 grant execute on function public.claim_topic(text, text, text) to anon;

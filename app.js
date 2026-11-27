@@ -3,6 +3,7 @@
   const $ = (id) => document.getElementById(id);
   const MESSAGES = {
     topic_taken: "Ese tema ya fue elegido por otra persona. Elige otro.",
+    elections_closed: "La elección de temas está cerrada por ahora.",
     email_already_used: "Ese correo ya eligió un tema. Para cambiarlo, escribe al profesor.",
     invalid_input: "Revisa tu nombre y correo.",
   };
@@ -10,6 +11,7 @@
   let topics = [];
   let taken = new Set();
   let selected = null;
+  let electionsOpen = false;
   let details = {};
   const expanded = new Set();
   const activeTags = new Set();
@@ -150,7 +152,7 @@
         b.className = "badge";
         b.textContent = "Ocupado";
         row.append(b);
-      } else {
+      } else if (electionsOpen) {
         const btn = document.createElement("button");
         btn.className = "primary";
         btn.textContent = "Elegir";
@@ -213,6 +215,9 @@
     } catch {
       $("counter").textContent = "No se pudo consultar la disponibilidad. Recarga la página.";
     }
+    // Si no se puede consultar el interruptor, se asume cerrada.
+    electionsOpen = await rpc("elections_open").then((v) => v === true).catch(() => false);
+    $("banner").hidden = electionsOpen;
     render();
     for (const id of ["search", "only-free"]) $(id).addEventListener("input", render);
     $("form").addEventListener("submit", submit);

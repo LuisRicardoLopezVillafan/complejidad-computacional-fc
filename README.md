@@ -11,6 +11,11 @@ Página estática (GitHub Pages) + Supabase (plan gratuito) para que los alumnos
 
 ## Administración
 
+- **Abrir o cerrar la elección** (empieza cerrada), en el SQL Editor de Supabase:
+  - Abrir: `update public.settings set value = 'true' where key = 'elections_open';`
+  - Cerrar: `update public.settings set value = 'false' where key = 'elections_open';`
+
+  El cierre lo exige la base de datos, no solo la página.
 - Ver quién eligió qué: *Table Editor → claims* en Supabase.
 - Liberar un tema o permitir un cambio: borrar la fila correspondiente.
 - Agregar o editar temas: modificar [topics.json](topics.json) (`id` único en minúsculas, dígitos y guiones).
