@@ -84,7 +84,7 @@
     bar.replaceChildren();
     for (const tag of tagHue.keys()) {
       const b = tagChip(tag);
-      const n = topics.filter((t) => t.category === tag).length;
+      const n = topics.filter((t) => t.tags.includes(tag)).length;
       b.textContent = `${tag} (${n})`;
       b.addEventListener("click", () => toggleTag(tag));
       bar.append(b);
@@ -103,7 +103,7 @@
     const q = $("search").value.trim().toLowerCase();
     const onlyFree = $("only-free").checked;
     const visible = topics.filter((t) =>
-      (!activeTags.size || activeTags.has(t.category)) &&
+      (!activeTags.size || t.tags.some((x) => activeTags.has(x))) &&
       (!onlyFree || !taken.has(t.id)) &&
       (!q || `${t.name} ${t.ref}`.toLowerCase().includes(q)));
 
@@ -127,9 +127,14 @@
       ref.className = "ref";
       ref.textContent = t.ref;
       info.append(name, ref);
-      const rowTag = tagChip(t.category, " small");
-      rowTag.addEventListener("click", (e) => { e.stopPropagation(); toggleTag(t.category); });
-      info.append(rowTag);
+      const rowTags = document.createElement("div");
+      rowTags.className = "row-tags";
+      for (const tag of t.tags) {
+        const chip = tagChip(tag, " small");
+        chip.addEventListener("click", (e) => { e.stopPropagation(); toggleTag(tag); });
+        rowTags.append(chip);
+      }
+      info.append(rowTags);
       const toggle = () => {
         if (expanded.has(t.id)) expanded.delete(t.id); else expanded.add(t.id);
         render();
@@ -200,7 +205,7 @@
   async function init() {
     topics = await (await fetch("topics.json", { cache: "no-cache" })).json();
     details = await fetch("details.json", { cache: "no-cache" }).then((r) => r.json()).catch(() => ({}));
-    const cats = [...new Set(topics.map((t) => t.category))];
+    const cats = [...new Set(topics.flatMap((t) => t.tags))];
     cats.forEach((c, i) => tagHue.set(c, Math.round((i * 360) / cats.length)));
     try {
       await refreshTaken();

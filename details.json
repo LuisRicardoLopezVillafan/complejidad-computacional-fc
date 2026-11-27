@@ -33,7 +33,7 @@
     ]
   },
   "slitherlink": {
-    "summary": "En una cuadrícula con algunos números, hay que trazar sobre las líneas de la malla un único ciclo cerrado sin cruces, de modo que cada número indique cuántos lados de su celda forman parte del ciclo. Yato mostró que decidir si existe solución es NP-completo, y que además la versión con solución única se comporta igual (ASP-completitud). El tema conecta bien con ciclos hamiltonianos en grafos planos.",
+    "summary": "En una cuadrícula con algunos números, hay que trazar sobre las líneas de la malla un único ciclo cerrado sin cruces, de modo que cada número indique cuántos lados de su celda forman parte del ciclo. Yato mostró que decidir si existe solución es NP-completo, y que además la versión con solución única se comporta igual (ASP-completitud). El tema conecta bien con ciclos hamiltonianos en gráficas planas.",
     "links": [
       {"label": "Wikipedia: Slitherlink", "url": "https://en.wikipedia.org/wiki/Slitherlink"}
     ]
@@ -45,7 +45,7 @@
     ]
   },
   "sudoku": {
-    "summary": "Sudoku generalizado: dado un tablero n²×n² parcialmente relleno, ¿se puede completar de modo que cada fila, columna y bloque n×n contenga cada símbolo exactamente una vez? Yato y Seta demostraron que es NP-completo. Un problema relacionado y anterior es completar un cuadrado latino parcial, que ya había sido probado NP-completo por Colbourn (sin la restricción de bloques). Sudoku se puede ver también como un problema de coloración de grafos con colores precoloreados.",
+    "summary": "Sudoku generalizado: dado un tablero n²×n² parcialmente relleno, ¿se puede completar de modo que cada fila, columna y bloque n×n contenga cada símbolo exactamente una vez? Yato y Seta demostraron que es NP-completo. Un problema relacionado y anterior es completar un cuadrado latino parcial, que ya había sido probado NP-completo por Colbourn (sin la restricción de bloques). Sudoku se puede ver también como un problema de coloración de gráficas con colores precoloreados.",
     "links": [
       {"label": "Wikipedia: Mathematics of Sudoku", "url": "https://en.wikipedia.org/wiki/Mathematics_of_Sudoku"},
       {"label": "Wikipedia: Latin square", "url": "https://en.wikipedia.org/wiki/Latin_square"}
@@ -91,21 +91,21 @@
     ]
   },
   "metric-dimension": {
-    "summary": "Un conjunto de vértices R resuelve un grafo si cada vértice queda identificado de manera única por el vector de sus distancias a los vértices de R. La dimensión métrica es el tamaño mínimo de uno de esos conjuntos. El problema de decidir si hay uno de tamaño k es NP-completo (aparece en Garey y Johnson). Tiene aplicaciones en localización de robots y en redes con sensores (el nombre 'landmarks').",
+    "summary": "Un conjunto de vértices R resuelve una gráfica si cada vértice queda identificado de manera única por el vector de sus distancias a los vértices de R. La dimensión métrica es el tamaño mínimo de uno de esos conjuntos. El problema de decidir si hay uno de tamaño k es NP-completo (aparece en Garey y Johnson). Tiene aplicaciones en localización de robots y en redes con sensores (el nombre 'landmarks').",
     "links": [
       {"label": "Wikipedia: Metric dimension (graph theory)", "url": "https://en.wikipedia.org/wiki/Metric_dimension_(graph_theory)"},
       {"label": "Khuller et al. (1996): Landmarks in graphs", "url": "https://doi.org/10.1016/0166-218X(95)00106-2"}
     ]
   },
   "minimum-fill-in": {
-    "summary": "Dado un grafo, ¿cuántas aristas hay que añadir como mínimo para volverlo cordal (sin ciclos inducidos de longitud 4 o más)? Yannakakis demostró que decidir si bastan k aristas es NP-completo. Surge al eliminar variables en matrices dispersas: la eliminación gaussiana crea 'relleno' (fill-in) y se quiere minimizarlo. Está muy relacionado con el treewidth.",
+    "summary": "Dada una gráfica, ¿cuántas aristas hay que añadir como mínimo para volverla cordal (sin ciclos inducidos de longitud 4 o más)? Yannakakis demostró que decidir si bastan k aristas es NP-completo. Surge al eliminar variables en matrices dispersas: la eliminación gaussiana crea 'relleno' (fill-in) y se quiere minimizarlo. Está muy relacionado con el treewidth.",
     "links": [
       {"label": "Wikipedia: Chordal completion", "url": "https://en.wikipedia.org/wiki/Chordal_completion"},
       {"label": "Yannakakis (1981): Computing the Minimum Fill-In is NP-Complete", "url": "https://doi.org/10.1137/0602010"}
     ]
   },
   "treewidth": {
-    "summary": "El treewidth mide qué tan 'parecido a un árbol' es un grafo, mediante descomposiciones en árbol. Decidir si un grafo tiene treewidth a lo más k es NP-completo cuando k forma parte de la entrada (Arnborg, Corneil y Proskurowski), aunque para k fijo hay algoritmos lineales (Bodlaender). Es central en complejidad parametrizada, ya que muchos problemas NP-duros se vuelven fáciles en grafos de treewidth acotado.",
+    "summary": "El treewidth mide qué tan 'parecido a un árbol' es una gráfica, mediante descomposiciones en árbol. Decidir si una gráfica tiene treewidth a lo más k es NP-completo cuando k forma parte de la entrada (Arnborg, Corneil y Proskurowski), aunque para k fijo hay algoritmos lineales (Bodlaender). Es central en complejidad parametrizada, ya que muchos problemas NP-duros se vuelven fáciles en gráficas de treewidth acotado.",
     "links": [
       {"label": "Wikipedia: Treewidth", "url": "https://en.wikipedia.org/wiki/Treewidth"},
       {"label": "Arnborg et al. (1987): Complexity of Finding Embeddings in a k-Tree", "url": "https://doi.org/10.1137/0608024"}
@@ -118,17 +118,17 @@
     ]
   },
   "linear-arrangement": {
-    "summary": "Hay que ordenar los vértices de un grafo sobre una recta de manera que la suma de las longitudes de todas las aristas (diferencia de posiciones de sus extremos) sea mínima. Garey, Johnson y Stockmeyer demostraron en 1976 que decidir si existe un orden con costo a lo más K es NP-completo. Es una buena opción para comparar con bandwidth: cambia el 'máximo' por la 'suma'.",
+    "summary": "Hay que ordenar los vértices de una gráfica sobre una recta de manera que la suma de las longitudes de todas las aristas (diferencia de posiciones de sus extremos) sea mínima. Garey, Johnson y Stockmeyer demostraron en 1976 que decidir si existe un orden con costo a lo más K es NP-completo. Es una buena opción para comparar con bandwidth: cambia el 'máximo' por la 'suma'.",
     "links": []
   },
   "crossing-number": {
-    "summary": "El número de cruces de un grafo es la menor cantidad de cruces de aristas en cualquier dibujo en el plano. Decidir si es a lo más k es NP-completo (Garey y Johnson, 1983), incluso aunque ya se sabe que el caso k = 0 (planaridad) se decide en tiempo lineal. Se usa en diseño de circuitos VLSI y en visualización de grafos.",
+    "summary": "El número de cruces de una gráfica es la menor cantidad de cruces de aristas en cualquier dibujo en el plano. Decidir si es a lo más k es NP-completo (Garey y Johnson, 1983), incluso aunque ya se sabe que el caso k = 0 (planaridad) se decide en tiempo lineal. Se usa en diseño de circuitos VLSI y en visualización de gráficas.",
     "links": [
       {"label": "Wikipedia: Crossing number (graph theory)", "url": "https://en.wikipedia.org/wiki/Crossing_number_(graph_theory)"}
     ]
   },
   "edge-dominating-set": {
-    "summary": "Un conjunto de aristas domina si toda arista del grafo comparte un extremo con alguna del conjunto. Pedir uno de tamaño mínimo es NP-completo (Yannakakis y Gavril, 1980) y equivale a buscar un emparejamiento maximal de tamaño mínimo. Contrasta con el emparejamiento máximo, que está en P: aquí 'maximal' (no ampliable) hace la diferencia.",
+    "summary": "Un conjunto de aristas domina si toda arista de la gráfica comparte un extremo con alguna del conjunto. Pedir uno de tamaño mínimo es NP-completo (Yannakakis y Gavril, 1980) y equivale a buscar un emparejamiento maximal de tamaño mínimo. Contrasta con el emparejamiento máximo, que está en P: aquí 'maximal' (no ampliable) hace la diferencia.",
     "links": [
       {"label": "Wikipedia: Edge dominating set", "url": "https://en.wikipedia.org/wiki/Edge_dominating_set"},
       {"label": "Yannakakis, Gavril (1980): Edge Dominating Sets in Graphs", "url": "https://doi.org/10.1137/0138030"}
@@ -141,32 +141,32 @@
     ]
   },
   "circular-arc-coloring": {
-    "summary": "Se tienen arcos de una circunferencia y se quiere colorearlos con k colores de modo que arcos que se traslapan reciban colores distintos. Si fueran intervalos en una recta el problema estaría en P (grafos de intervalos), pero con arcos circulares es NP-completo (Garey, Johnson, Miller y Papadimitriou). Se aplica, por ejemplo, a asignación de recursos y de longitudes de onda en redes en anillo.",
+    "summary": "Se tienen arcos de una circunferencia y se quiere colorearlos con k colores de modo que arcos que se traslapan reciban colores distintos. Si fueran intervalos en una recta el problema estaría en P (gráficas de intervalos), pero con arcos circulares es NP-completo (Garey, Johnson, Miller y Papadimitriou). Se aplica, por ejemplo, a asignación de recursos y de longitudes de onda en redes en anillo.",
     "links": [
       {"label": "Wikipedia: Circular-arc graph", "url": "https://en.wikipedia.org/wiki/Circular-arc_graph"}
     ]
   },
   "hamiltonian-grid": {
-    "summary": "Un grid graph es un subgrafo inducido de la malla cuadriculada. La pregunta es si tiene un camino o ciclo hamiltoniano. Itai, Papadimitriou y Szwarcfiter demostraron que es NP-completo, lo cual muestra que el problema sigue siendo difícil en una familia geométrica muy restringida. Conecta con rompecabezas de recorridos, como Slitherlink.",
+    "summary": "Un grid graph es una subgráfica inducida de la malla cuadriculada. La pregunta es si tiene un camino o ciclo hamiltoniano. Itai, Papadimitriou y Szwarcfiter demostraron que es NP-completo, lo cual muestra que el problema sigue siendo difícil en una familia geométrica muy restringida. Conecta con rompecabezas de recorridos, como Slitherlink.",
     "links": [
       {"label": "Wikipedia: Hamiltonian path problem", "url": "https://en.wikipedia.org/wiki/Hamiltonian_path_problem"},
       {"label": "Wikipedia: Grid graph", "url": "https://en.wikipedia.org/wiki/Grid_graph"}
     ]
   },
   "max-leaf-spanning-tree": {
-    "summary": "Dado un grafo conexo, hay que encontrar un árbol generador con el mayor número posible de hojas. Es NP-completo y aparece en Garey y Johnson (ND2). Equivale a minimizar el número de nodos internos, es decir, a encontrar un conjunto dominante conexo mínimo. Es un tema bueno para hablar también de aproximación y de algoritmos parametrizados.",
+    "summary": "Dada una gráfica conexa, hay que encontrar un árbol generador con el mayor número posible de hojas. Es NP-completo y aparece en Garey y Johnson (ND2). Equivale a minimizar el número de nodos internos, es decir, a encontrar un conjunto dominante conexo mínimo. Es un tema bueno para hablar también de aproximación y de algoritmos parametrizados.",
     "links": [
       {"label": "Wikipedia: Maximum leaf spanning tree", "url": "https://en.wikipedia.org/wiki/Maximum_leaf_spanning_tree"}
     ]
   },
   "postman": {
-    "summary": "El problema del cartero chino pide un recorrido de costo mínimo que recorra todas las aristas, y es polinomial en grafos no dirigidos o dirigidos. Las variantes que lo hacen NP-completo son: el Rural Postman (solo hay que recorrer un subconjunto de aristas requeridas, Lenstra y Rinnooy Kan) y el cartero chino mixto (con aristas dirigidas y no dirigidas, Papadimitriou). Es un tema para ver cómo una pequeña modificación cambia la complejidad.",
+    "summary": "El problema del cartero chino pide un recorrido de costo mínimo que recorra todas las aristas, y es polinomial en gráficas no dirigidas o dirigidas. Las variantes que lo hacen NP-completo son: el Rural Postman (solo hay que recorrer un subconjunto de aristas requeridas, Lenstra y Rinnooy Kan) y el cartero chino mixto (con aristas dirigidas y no dirigidas, Papadimitriou). Es un tema para ver cómo una pequeña modificación cambia la complejidad.",
     "links": [
       {"label": "Wikipedia: Route inspection problem", "url": "https://en.wikipedia.org/wiki/Route_inspection_problem"}
     ]
   },
   "unit-disk-is": {
-    "summary": "En un unit disk graph, los vértices son puntos del plano y dos están unidos si su distancia es a lo más 1. Es un modelo común de redes inalámbricas. Clark, Colbourn y Johnson mostraron que encontrar un conjunto independiente máximo sigue siendo NP-completo en estos grafos, aunque se conocen esquemas de aproximación que usan su geometría. Contrasta con grafos de intervalos, donde el problema está en P.",
+    "summary": "En un unit disk graph, los vértices son puntos del plano y dos están unidos si su distancia es a lo más 1. Es un modelo común de redes inalámbricas. Clark, Colbourn y Johnson mostraron que encontrar un conjunto independiente máximo sigue siendo NP-completo en estas gráficas, aunque se conocen esquemas de aproximación que usan su geometría. Contrasta con las gráficas de intervalos, donde el problema está en P.",
     "links": [
       {"label": "Wikipedia: Unit disk graph", "url": "https://en.wikipedia.org/wiki/Unit_disk_graph"}
     ]
@@ -179,7 +179,7 @@
     ]
   },
   "planar-3sat": {
-    "summary": "Es 3-SAT restringido a fórmulas cuyo grafo de incidencia (variables y cláusulas, con aristas de pertenencia) es planar. Lichtenstein demostró que sigue siendo NP-completo. Su importancia es que sirve como punto de partida de reducciones para problemas geométricos y de grafos planos, porque permite dibujar la fórmula en el plano sin cruces. Contrasta con otras restricciones de SAT que sí son polinomiales.",
+    "summary": "Es 3-SAT restringido a fórmulas cuya gráfica de incidencia (variables y cláusulas, con aristas de pertenencia) es planar. Lichtenstein demostró que sigue siendo NP-completo. Su importancia es que sirve como punto de partida de reducciones para problemas geométricos y de gráficas planas, porque permite dibujar la fórmula en el plano sin cruces. Contrasta con otras restricciones de SAT que sí son polinomiales.",
     "links": [
       {"label": "Wikipedia: Planar SAT", "url": "https://en.wikipedia.org/wiki/Planar_SAT"}
     ]
@@ -248,7 +248,7 @@
     ]
   },
   "sorting-by-reversals": {
-    "summary": "Una reversión invierte un segmento contiguo de una permutación. La distancia de reversión es el menor número de reversiones para pasar de una permutación a la identidad; modela mutaciones entre genomas de especies distintas. Caprara demostró que calcularla para permutaciones sin signo es NP-duro, mientras que para permutaciones con signo existe un algoritmo polinomial (Hannenhalli y Pevzner). Se parece al ordenamiento de panqueques, pero con reversiones en cualquier segmento.",
+    "summary": "Una reversión invierte un segmento contiguo de una permutación. La distancia de reversión es el menor número de reversiones para pasar de una permutación a la identidad; modela mutaciones entre genomas de especies distintas. Caprara demostró que calcularla para permutaciones sin signo es NP-duro, mientras que para permutaciones con signo existe un algoritmo polinomial (Hannenhalli y Pevzner). Se parece al ordenamiento de hotcakes, pero con reversiones en cualquier segmento.",
     "links": [
       {"label": "Wikipedia: Pancake sorting (reversiones de prefijos, caso relacionado)", "url": "https://en.wikipedia.org/wiki/Pancake_sorting"}
     ]
@@ -291,13 +291,13 @@
     ]
   },
   "cutwidth": {
-    "summary": "El cutwidth pide ordenar los vértices de un grafo en una línea de modo que la máxima cantidad de aristas que cruzan cualquier 'corte' entre dos posiciones consecutivas sea lo menor posible. Gavril demostró que decidir si es a lo más k es NP-completo. Es primo de bandwidth y de linear arrangement: los tres ordenan vértices en una recta pero miden cosas distintas. Es un tema bueno para comparar las tres funciones de costo.",
+    "summary": "El cutwidth pide ordenar los vértices de una gráfica en una línea de modo que la máxima cantidad de aristas que cruzan cualquier 'corte' entre dos posiciones consecutivas sea lo menor posible. Gavril demostró que decidir si es a lo más k es NP-completo. Es primo de bandwidth y de linear arrangement: los tres ordenan vértices en una recta pero miden cosas distintas. Es un tema bueno para comparar las tres funciones de costo.",
     "links": [
       {"label": "Wikipedia: Cutwidth", "url": "https://en.wikipedia.org/wiki/Cutwidth"}
     ]
   },
   "min-bisection": {
-    "summary": "Dado un grafo con un número par de vértices, hay que dividirlo en dos mitades del mismo tamaño de modo que la cantidad de aristas entre ambas mitades sea mínima. Es la versión 'balanceada' del corte mínimo, que sin la exigencia de equilibrio se resuelve en tiempo polinomial con flujos. Garey, Johnson y Stockmeyer demostraron que es NP-completo. Tiene usos en paralelización y en diseño de circuitos.",
+    "summary": "Dada una gráfica con un número par de vértices, hay que dividirlo en dos mitades del mismo tamaño de modo que la cantidad de aristas entre ambas mitades sea mínima. Es la versión 'balanceada' del corte mínimo, que sin la exigencia de equilibrio se resuelve en tiempo polinomial con flujos. Garey, Johnson y Stockmeyer demostraron que es NP-completo. Tiene usos en paralelización y en diseño de circuitos.",
     "links": [
       {"label": "Wikipedia: Graph partition", "url": "https://en.wikipedia.org/wiki/Graph_partition"}
     ]
@@ -307,13 +307,13 @@
     "links": []
   },
   "feedback-arc-set": {
-    "summary": "Dado un grafo dirigido, hay que encontrar el menor conjunto de aristas cuya eliminación deja el grafo sin ciclos dirigidos. Karp lo incluyó en sus 21 problemas. Un caso especial interesante son los torneos (un grafo dirigido completo, donde cada par de vértices tiene exactamente una arista), en los que el problema sigue siendo NP-duro y equivale a ordenar a los participantes con el menor número de 'sorpresas'. Se relaciona con rankings y con la agregación de preferencias.",
+    "summary": "Dada una gráfica dirigida, hay que encontrar el menor conjunto de aristas cuya eliminación deja la gráfica sin ciclos dirigidos. Karp lo incluyó en sus 21 problemas. Un caso especial interesante son los torneos (una gráfica dirigida completa, donde cada par de vértices tiene exactamente una arista), en los que el problema sigue siendo NP-duro y equivale a ordenar a los participantes con el menor número de 'sorpresas'. Se relaciona con rankings y con la agregación de preferencias.",
     "links": [
       {"label": "Wikipedia: Feedback arc set", "url": "https://en.wikipedia.org/wiki/Feedback_arc_set"}
     ]
   },
   "pancake-sorting": {
-    "summary": "Hay una pila de panqueques de distintos tamaños y la única operación es meter una espátula y voltear todos los de arriba (reversión de un prefijo). El objetivo es ordenarlos con el menor número de volteos. Bulteau, Fertin y Rusu demostraron que calcular la distancia mínima es NP-duro, lo que resolvía un problema abierto durante décadas. Es un tema ameno, ligado a sorting by reversals y al famoso trabajo de Gates y Papadimitriou sobre cotas.",
+    "summary": "Hay una pila de hotcakes de distintos tamaños y la única operación es meter una espátula y voltear todos los de arriba (reversión de un prefijo). El objetivo es ordenarlos con el menor número de volteos. Bulteau, Fertin y Rusu demostraron que calcular la distancia mínima es NP-duro, lo que resolvía un problema abierto durante décadas. Es un tema ameno, ligado a sorting by reversals y al famoso trabajo de Gates y Papadimitriou sobre cotas.",
     "links": [
       {"label": "Wikipedia: Pancake sorting", "url": "https://en.wikipedia.org/wiki/Pancake_sorting"},
       {"label": "arXiv: Pancake Flipping is Hard", "url": "https://arxiv.org/abs/1111.0434"}

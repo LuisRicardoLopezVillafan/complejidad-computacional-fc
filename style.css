@@ -10,7 +10,8 @@ input, select, button { font: inherit; padding: .4rem .6rem; border: 1px solid v
 .tag { --h: 210; font: inherit; font-size: .85rem; padding: .15rem .6rem; border-radius: 999px; cursor: pointer;
   border: 1px solid hsl(var(--h) 55% 45%); background: hsl(var(--h) 80% 94%); color: hsl(var(--h) 60% 25%); }
 .tag.active { background: hsl(var(--h) 60% 40%); color: #fff; }
-.tag.small { font-size: .75rem; padding: 0 .5rem; margin-top: .3rem; }
+.tag.small { font-size: .75rem; padding: 0 .5rem; }
+.row-tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .3rem; }
 .tags .clear { font-size: .85rem; border: none; background: none; color: var(--accent); text-decoration: underline; cursor: pointer; }
 .topic { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .5rem 1rem; padding: .6rem .8rem; border: 1px solid var(--border); border-radius: 8px; margin-bottom: .5rem; }
 .topic.taken { opacity: .55; }
