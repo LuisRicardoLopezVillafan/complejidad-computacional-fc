@@ -1,0 +1,21 @@
+:root { --accent: #1a5fb4; --muted: #666; --border: #d0d0d0; }
+* { box-sizing: border-box; }
+body { font-family: system-ui, sans-serif; margin: 0 auto; max-width: 860px; padding: 1rem; line-height: 1.4; color: #222; }
+h1 { margin-bottom: .25rem; }
+.muted { color: var(--muted); font-size: .9rem; }
+.controls { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin: 1rem 0 .5rem; }
+.controls input[type=search] { flex: 1 1 200px; }
+input, select, button { font: inherit; padding: .4rem .6rem; border: 1px solid var(--border); border-radius: 6px; }
+h2.cat { margin: 1.5rem 0 .5rem; font-size: 1.1rem; border-bottom: 1px solid var(--border); }
+.topic { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .6rem .8rem; border: 1px solid var(--border); border-radius: 8px; margin-bottom: .5rem; }
+.topic.taken { opacity: .55; }
+.topic .name { font-weight: 600; }
+.topic .ref { color: var(--muted); font-size: .85rem; }
+button.primary { background: var(--accent); color: #fff; border-color: var(--accent); cursor: pointer; }
+button:disabled { cursor: not-allowed; opacity: .6; }
+.badge { font-size: .85rem; color: var(--muted); white-space: nowrap; }
+dialog { border: 1px solid var(--border); border-radius: 10px; max-width: 420px; width: 92%; }
+dialog label { display: block; margin: .6rem 0; }
+dialog input { width: 100%; }
+.actions { display: flex; justify-content: flex-end; gap: .5rem; margin-top: 1rem; }
+.error { color: #b00020; }
