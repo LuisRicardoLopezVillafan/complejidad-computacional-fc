@@ -20,7 +20,8 @@
       method: "POST",
       headers: {
         apikey: SUPABASE_ANON_KEY,
-        Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+        // Las claves nuevas (sb_publishable_...) no son JWT y solo van en apikey.
+        ...(SUPABASE_ANON_KEY.startsWith("eyJ") ? { Authorization: `Bearer ${SUPABASE_ANON_KEY}` } : {}),
         "Content-Type": "application/json",
       },
       body: JSON.stringify(body ?? {}),
