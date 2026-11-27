@@ -7,8 +7,13 @@ h1 { margin-bottom: .25rem; }
 .controls input[type=search] { flex: 1 1 200px; }
 input, select, button { font: inherit; padding: .4rem .6rem; border: 1px solid var(--border); border-radius: 6px; }
 h2.cat { margin: 1.5rem 0 .5rem; font-size: 1.1rem; border-bottom: 1px solid var(--border); }
-.topic { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .6rem .8rem; border: 1px solid var(--border); border-radius: 8px; margin-bottom: .5rem; }
+.topic { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .5rem 1rem; padding: .6rem .8rem; border: 1px solid var(--border); border-radius: 8px; margin-bottom: .5rem; }
 .topic.taken { opacity: .55; }
+.topic .info { flex: 1 1 0; min-width: 0; cursor: pointer; }
+.topic.open { border-color: var(--accent); }
+.details { flex: 1 0 100%; border-top: 1px solid var(--border); padding-top: .5rem; font-size: .95rem; }
+.details p { margin: 0 0 .5rem; }
+.details ul { margin: 0; padding-left: 1.2rem; }
 .topic .name { font-weight: 600; }
 .topic .ref { color: var(--muted); font-size: .85rem; }
 button.primary { background: var(--accent); color: #fff; border-color: var(--accent); cursor: pointer; }

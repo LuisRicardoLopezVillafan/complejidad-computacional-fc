@@ -1,0 +1,262 @@
+{
+  "minesweeper": {
+    "summary": "Dado un tablero parcialmente descubierto de Buscaminas, con números que indican cuántas minas hay en las casillas vecinas, ¿existe una colocación de minas consistente con todos los números visibles? Kaye mostró que este problema de consistencia es NP-completo construyendo, con patrones de casillas, cables y compuertas lógicas que simulan circuitos booleanos. No dice que jugar bien sea difícil, sino decidir si una configuración observada es posible. Es un buen tema para ver reducciones desde circuitos o SAT a un problema visual.",
+    "links": [
+      {"label": "Wikipedia: Minesweeper (video game)", "url": "https://en.wikipedia.org/wiki/Minesweeper_(video_game)"},
+      {"label": "Kaye (2000): Minesweeper is NP-complete", "url": "https://doi.org/10.1007/bf03025367"}
+    ]
+  },
+  "tetris": {
+    "summary": "En la versión offline se conoce de antemano la secuencia completa de piezas y el tablero inicial. La pregunta es si se puede, por ejemplo, limpiar todas las filas o maximizar las filas limpiadas. Demaine, Hohenberger y Liben-Nowell demuestran que es NP-completo (incluso aproximarlo bien es difícil) mediante una reducción desde 3-Partition, que codifica números en huecos del tablero. El resultado es notable porque Tetris parece un juego de reflejos y resulta ser un problema combinatorio.",
+    "links": [
+      {"label": "Wikipedia: Tetris", "url": "https://en.wikipedia.org/wiki/Tetris"},
+      {"label": "arXiv: Tetris is Hard, Even to Approximate", "url": "https://arxiv.org/abs/cs/0210020"}
+    ]
+  },
+  "clickomania": {
+    "summary": "Es un juego de eliminar bloques: se quitan grupos conectados de dos o más bloques del mismo color, y los de arriba caen y las columnas se compactan. El objetivo es vaciar el tablero, o dejar el menor número de bloques. Biedl et al. estudian cómo cambia la complejidad según el número de columnas y de colores: hay casos polinomiales y casos NP-completos incluso con pocas columnas o pocos colores. Es un tema bueno para ver cómo el tamaño de los parámetros cruza la frontera entre P y NP.",
+    "links": [
+      {"label": "Wikipedia: Clickomania", "url": "https://en.wikipedia.org/wiki/Clickomania"},
+      {"label": "arXiv: The Complexity of Clickomania", "url": "https://arxiv.org/abs/cs/0107031"}
+    ]
+  },
+  "peg-solitaire": {
+    "summary": "El solitario de clavijas (Hi-Q) se juega saltando una clavija sobre otra adyacente hacia un hueco libre y quitando la clavija saltada. La pregunta generalizada es si, desde una configuración inicial en un tablero arbitrario, se puede llegar a dejar una sola clavija. Uehara e Iwata demostraron que el problema generalizado es NP-completo. Se puede explicar con el tablero clásico para dar intuición y luego pasar a las gadgets de la reducción.",
+    "links": [
+      {"label": "Wikipedia: Peg solitaire", "url": "https://en.wikipedia.org/wiki/Peg_solitaire"}
+    ]
+  },
+  "nonogramas": {
+    "summary": "Un nonograma es una cuadrícula en la que cada fila y columna lleva una lista de números que indica la longitud de los bloques consecutivos de casillas negras. Se pide decidir si existe una coloración que cumpla todas las pistas. Ueda y Nagao demostraron que es NP-completo. Además, hay una diferencia interesante entre existencia de solución y unicidad, que es lo que buscan quienes diseñan los rompecabezas.",
+    "links": [
+      {"label": "Wikipedia: Nonogram", "url": "https://en.wikipedia.org/wiki/Nonogram"}
+    ]
+  },
+  "slitherlink": {
+    "summary": "En una cuadrícula con algunos números, hay que trazar sobre las líneas de la malla un único ciclo cerrado sin cruces, de modo que cada número indique cuántos lados de su celda forman parte del ciclo. Yato mostró que decidir si existe solución es NP-completo, y que además la versión con solución única se comporta igual (ASP-completitud). El tema conecta bien con ciclos hamiltonianos en grafos planos.",
+    "links": [
+      {"label": "Wikipedia: Slitherlink", "url": "https://en.wikipedia.org/wiki/Slitherlink"}
+    ]
+  },
+  "kakuro": {
+    "summary": "Kakuro es una especie de crucigrama numérico: hay que rellenar casillas con dígitos del 1 al 9 de modo que, en cada tramo horizontal o vertical, los dígitos no se repitan y sumen la cantidad indicada. Seta demostró que decidir si un Kakuro tiene solución es NP-completo. Es un buen ejemplo de un problema con restricciones de suma sobre bloques que se parece a Subset Sum.",
+    "links": [
+      {"label": "Wikipedia: Kakuro", "url": "https://en.wikipedia.org/wiki/Kakuro"}
+    ]
+  },
+  "sudoku": {
+    "summary": "Sudoku generalizado: dado un tablero n²×n² parcialmente relleno, ¿se puede completar de modo que cada fila, columna y bloque n×n contenga cada símbolo exactamente una vez? Yato y Seta demostraron que es NP-completo. Un problema relacionado y anterior es completar un cuadrado latino parcial, que ya había sido probado NP-completo por Colbourn (sin la restricción de bloques). Sudoku se puede ver también como un problema de coloración de grafos con colores precoloreados.",
+    "links": [
+      {"label": "Wikipedia: Mathematics of Sudoku", "url": "https://en.wikipedia.org/wiki/Mathematics_of_Sudoku"},
+      {"label": "Wikipedia: Latin square", "url": "https://en.wikipedia.org/wiki/Latin_square"}
+    ]
+  },
+  "jigsaw": {
+    "summary": "Dado un conjunto de piezas con bordes etiquetados, ¿se pueden colocar para armar una figura de modo que las etiquetas de bordes contiguos coincidan? Eso es edge-matching. Para los rompecabezas tipo jigsaw se exige además que las piezas encajen por forma. Demaine y Demaine mostraron que ambas variantes son NP-completas, y trabajos posteriores muestran que lo siguen siendo incluso en casos muy restringidos, como tableros 1×n. El tema es visual y se presta bien a exposición.",
+    "links": [
+      {"label": "Wikipedia: Edge-matching puzzle", "url": "https://en.wikipedia.org/wiki/Edge-matching_puzzle"},
+      {"label": "arXiv: Even 1×n Edge-Matching and Jigsaw Puzzles are Really Hard", "url": "https://arxiv.org/abs/1701.00146"}
+    ]
+  },
+  "mastermind": {
+    "summary": "En Mastermind, un jugador esconde un código de colores y el otro hace intentos; cada uno recibe una respuesta con aciertos de color y posición. La pregunta es de consistencia: dado un historial de intentos con sus respuestas, ¿existe algún código que sea consistente con todos ellos? Stuckman y Zhang demostraron que es NP-completo. Es relevante porque la estrategia óptima depende de poder razonar sobre los códigos todavía posibles.",
+    "links": [
+      {"label": "Wikipedia: Mastermind (board game)", "url": "https://en.wikipedia.org/wiki/Mastermind_(board_game)"},
+      {"label": "arXiv: Mastermind is NP-Complete", "url": "https://arxiv.org/abs/cs/0512049"}
+    ]
+  },
+  "battleship": {
+    "summary": "Es el rompecabezas lógico de barcos (Battleship solitario, o Bimaru): hay un tablero con una flota de barcos de longitudes dadas, cada fila y columna lleva la cantidad de casillas ocupadas, y puede haber algunas casillas reveladas. Los barcos no pueden tocarse ni en diagonal. Se pregunta si existe una colocación válida. Sevenster demostró que es NP-completo. Comparte con Bin Packing la dificultad de repartir longitudes dadas en espacios limitados (las filas y columnas).",
+    "links": [
+      {"label": "Wikipedia: Battleship (puzzle)", "url": "https://en.wikipedia.org/wiki/Battleship_(puzzle)"}
+    ]
+  },
+  "flood-it": {
+    "summary": "Flood-It es un juego sobre una cuadrícula coloreada: en cada turno se elige un color y se recolorea la región conexa que contiene la esquina; el objetivo es dejar todo el tablero de un solo color con la menor cantidad de movimientos. Clifford et al. muestran que, con tres o más colores, calcular el mínimo de movimientos es NP-duro. También se estudian variantes (por ejemplo, poder elegir desde qué casilla jugar) y aproximaciones.",
+    "links": [
+      {"label": "arXiv: The Complexity of Flood Filling Games", "url": "https://arxiv.org/abs/1001.4420"}
+    ]
+  },
+  "rubik": {
+    "summary": "Dado un cubo de Rubik n×n×n en una configuración arbitraria y un entero k, ¿se puede resolver en a lo más k movimientos? Demaine, Eisenstat y Rudoy demostraron que esta versión de decisión (resolución óptima) es NP-completa cuando n crece. El resultado no afecta al cubo clásico 3×3×3, que tiene un número finito de estados. Sí interesa como ejemplo donde el tamaño generalizado vuelve difícil lo que parece un puzzle fijo.",
+    "links": [
+      {"label": "Wikipedia: Rubik's Cube", "url": "https://en.wikipedia.org/wiki/Rubik%27s_Cube"},
+      {"label": "arXiv: Solving the Rubik's Cube Optimally is NP-complete", "url": "https://arxiv.org/abs/1706.06708"}
+    ]
+  },
+  "candy-crush": {
+    "summary": "Se trata de un juego de combinar tres: se intercambian dos casillas adyacentes y los grupos de tres o más del mismo color desaparecen, tras lo cual cae el resto y puede haber reacciones en cadena. Walsh demuestra que decidir si se puede alcanzar cierta puntuación en un número limitado de movimientos es NP-duro. Es un ejemplo de un juego comercial muy popular con una reducción accesible.",
+    "links": [
+      {"label": "arXiv: Candy Crush is NP-hard", "url": "https://arxiv.org/abs/1403.1911"}
+    ]
+  },
+  "metric-dimension": {
+    "summary": "Un conjunto de vértices R resuelve un grafo si cada vértice queda identificado de manera única por el vector de sus distancias a los vértices de R. La dimensión métrica es el tamaño mínimo de uno de esos conjuntos. El problema de decidir si hay uno de tamaño k es NP-completo (aparece en Garey y Johnson). Tiene aplicaciones en localización de robots y en redes con sensores (el nombre 'landmarks').",
+    "links": [
+      {"label": "Wikipedia: Metric dimension (graph theory)", "url": "https://en.wikipedia.org/wiki/Metric_dimension_(graph_theory)"},
+      {"label": "Khuller et al. (1996): Landmarks in graphs", "url": "https://doi.org/10.1016/0166-218X(95)00106-2"}
+    ]
+  },
+  "minimum-fill-in": {
+    "summary": "Dado un grafo, ¿cuántas aristas hay que añadir como mínimo para volverlo cordal (sin ciclos inducidos de longitud 4 o más)? Yannakakis demostró que decidir si bastan k aristas es NP-completo. Surge al eliminar variables en matrices dispersas: la eliminación gaussiana crea 'relleno' (fill-in) y se quiere minimizarlo. Está muy relacionado con el treewidth.",
+    "links": [
+      {"label": "Wikipedia: Chordal completion", "url": "https://en.wikipedia.org/wiki/Chordal_completion"},
+      {"label": "Yannakakis (1981): Computing the Minimum Fill-In is NP-Complete", "url": "https://doi.org/10.1137/0602010"}
+    ]
+  },
+  "treewidth": {
+    "summary": "El treewidth mide qué tan 'parecido a un árbol' es un grafo, mediante descomposiciones en árbol. Decidir si un grafo tiene treewidth a lo más k es NP-completo cuando k forma parte de la entrada (Arnborg, Corneil y Proskurowski), aunque para k fijo hay algoritmos lineales (Bodlaender). Es central en complejidad parametrizada, ya que muchos problemas NP-duros se vuelven fáciles en grafos de treewidth acotado.",
+    "links": [
+      {"label": "Wikipedia: Treewidth", "url": "https://en.wikipedia.org/wiki/Treewidth"},
+      {"label": "Arnborg et al. (1987): Complexity of Finding Embeddings in a k-Tree", "url": "https://doi.org/10.1137/0608024"}
+    ]
+  },
+  "bandwidth": {
+    "summary": "Se asigna a cada vértice una posición distinta en la línea (1, ..., n) y el ancho de banda es la mayor diferencia de posiciones entre vértices adyacentes. El problema pide decidir si existe un orden de ancho de banda a lo más k. Papadimitriou probó que es NP-completo, y Garey et al. que sigue siéndolo incluso en árboles de grado máximo pequeño. Tiene aplicaciones en matrices dispersas y en layout de circuitos.",
+    "links": [
+      {"label": "Wikipedia: Graph bandwidth", "url": "https://en.wikipedia.org/wiki/Graph_bandwidth"}
+    ]
+  },
+  "linear-arrangement": {
+    "summary": "Hay que ordenar los vértices de un grafo sobre una recta de manera que la suma de las longitudes de todas las aristas (diferencia de posiciones de sus extremos) sea mínima. Garey, Johnson y Stockmeyer demostraron en 1976 que decidir si existe un orden con costo a lo más K es NP-completo. Es una buena opción para comparar con bandwidth: cambia el 'máximo' por la 'suma'.",
+    "links": []
+  },
+  "crossing-number": {
+    "summary": "El número de cruces de un grafo es la menor cantidad de cruces de aristas en cualquier dibujo en el plano. Decidir si es a lo más k es NP-completo (Garey y Johnson, 1983), incluso aunque ya se sabe que el caso k = 0 (planaridad) se decide en tiempo lineal. Se usa en diseño de circuitos VLSI y en visualización de grafos.",
+    "links": [
+      {"label": "Wikipedia: Crossing number (graph theory)", "url": "https://en.wikipedia.org/wiki/Crossing_number_(graph_theory)"}
+    ]
+  },
+  "edge-dominating-set": {
+    "summary": "Un conjunto de aristas domina si toda arista del grafo comparte un extremo con alguna del conjunto. Pedir uno de tamaño mínimo es NP-completo (Yannakakis y Gavril, 1980) y equivale a buscar un emparejamiento maximal de tamaño mínimo. Contrasta con el emparejamiento máximo, que está en P: aquí 'maximal' (no ampliable) hace la diferencia.",
+    "links": [
+      {"label": "Wikipedia: Edge dominating set", "url": "https://en.wikipedia.org/wiki/Edge_dominating_set"},
+      {"label": "Yannakakis, Gavril (1980): Edge Dominating Sets in Graphs", "url": "https://doi.org/10.1137/0138030"}
+    ]
+  },
+  "achromatic-number": {
+    "summary": "Una coloración propia es completa si para cada par de colores hay al menos una arista que los une. El número acromático es la mayor cantidad de colores que admite una coloración propia y completa. Es una especie de 'dual' del número cromático: aquí se maximiza el número de colores. Decidir si es al menos k es NP-completo (Yannakakis y Gavril).",
+    "links": [
+      {"label": "Wikipedia: Achromatic number", "url": "https://en.wikipedia.org/wiki/Achromatic_number"}
+    ]
+  },
+  "circular-arc-coloring": {
+    "summary": "Se tienen arcos de una circunferencia y se quiere colorearlos con k colores de modo que arcos que se traslapan reciban colores distintos. Si fueran intervalos en una recta el problema estaría en P (grafos de intervalos), pero con arcos circulares es NP-completo (Garey, Johnson, Miller y Papadimitriou). Se aplica, por ejemplo, a asignación de recursos y de longitudes de onda en redes en anillo.",
+    "links": [
+      {"label": "Wikipedia: Circular-arc graph", "url": "https://en.wikipedia.org/wiki/Circular-arc_graph"}
+    ]
+  },
+  "hamiltonian-grid": {
+    "summary": "Un grid graph es un subgrafo inducido de la malla cuadriculada. La pregunta es si tiene un camino o ciclo hamiltoniano. Itai, Papadimitriou y Szwarcfiter demostraron que es NP-completo, lo cual muestra que el problema sigue siendo difícil en una familia geométrica muy restringida. Conecta con rompecabezas de recorridos, como Slitherlink.",
+    "links": [
+      {"label": "Wikipedia: Hamiltonian path problem", "url": "https://en.wikipedia.org/wiki/Hamiltonian_path_problem"},
+      {"label": "Wikipedia: Grid graph", "url": "https://en.wikipedia.org/wiki/Grid_graph"}
+    ]
+  },
+  "max-leaf-spanning-tree": {
+    "summary": "Dado un grafo conexo, hay que encontrar un árbol generador con el mayor número posible de hojas. Es NP-completo y aparece en Garey y Johnson (ND2). Equivale a minimizar el número de nodos internos, es decir, a encontrar un conjunto dominante conexo mínimo. Es un tema bueno para hablar también de aproximación y de algoritmos parametrizados.",
+    "links": [
+      {"label": "Wikipedia: Maximum leaf spanning tree", "url": "https://en.wikipedia.org/wiki/Maximum_leaf_spanning_tree"}
+    ]
+  },
+  "postman": {
+    "summary": "El problema del cartero chino pide un recorrido de costo mínimo que recorra todas las aristas, y es polinomial en grafos no dirigidos o dirigidos. Las variantes que lo hacen NP-completo son: el Rural Postman (solo hay que recorrer un subconjunto de aristas requeridas, Lenstra y Rinnooy Kan) y el cartero chino mixto (con aristas dirigidas y no dirigidas, Papadimitriou). Es un tema para ver cómo una pequeña modificación cambia la complejidad.",
+    "links": [
+      {"label": "Wikipedia: Route inspection problem", "url": "https://en.wikipedia.org/wiki/Route_inspection_problem"}
+    ]
+  },
+  "unit-disk-is": {
+    "summary": "En un unit disk graph, los vértices son puntos del plano y dos están unidos si su distancia es a lo más 1. Es un modelo común de redes inalámbricas. Clark, Colbourn y Johnson mostraron que encontrar un conjunto independiente máximo sigue siendo NP-completo en estos grafos, aunque se conocen esquemas de aproximación que usan su geometría. Contrasta con grafos de intervalos, donde el problema está en P.",
+    "links": [
+      {"label": "Wikipedia: Unit disk graph", "url": "https://en.wikipedia.org/wiki/Unit_disk_graph"}
+    ]
+  },
+  "rectilinear-steiner": {
+    "summary": "Dados puntos del plano, hay que conectarlos con una red de segmentos horizontales y verticales de longitud total mínima, pudiendo añadir puntos auxiliares (de Steiner). Garey y Johnson demostraron que el problema rectilíneo es NP-completo. Tiene aplicación directa en el ruteo de circuitos integrados. La versión euclidiana también es NP-dura.",
+    "links": [
+      {"label": "Wikipedia: Steiner tree problem", "url": "https://en.wikipedia.org/wiki/Steiner_tree_problem"},
+      {"label": "Wikipedia: Rectilinear Steiner tree", "url": "https://en.wikipedia.org/wiki/Rectilinear_Steiner_tree"}
+    ]
+  },
+  "planar-3sat": {
+    "summary": "Es 3-SAT restringido a fórmulas cuyo grafo de incidencia (variables y cláusulas, con aristas de pertenencia) es planar. Lichtenstein demostró que sigue siendo NP-completo. Su importancia es que sirve como punto de partida de reducciones para problemas geométricos y de grafos planos, porque permite dibujar la fórmula en el plano sin cruces. Contrasta con otras restricciones de SAT que sí son polinomiales.",
+    "links": [
+      {"label": "Wikipedia: Planar SAT", "url": "https://en.wikipedia.org/wiki/Planar_SAT"}
+    ]
+  },
+  "1-in-3-sat": {
+    "summary": "Son dos variantes de 3-SAT con condiciones distintas por cláusula: en 1-in-3 SAT exactamente una de las tres literales debe ser verdadera, y en NAE-SAT (not-all-equal) no pueden ser todas iguales. Ambas son NP-completas y se usan mucho como punto de partida en reducciones. Son casos del teorema de dicotomía de Schaefer, que clasifica qué tipos de restricciones booleanas dan problemas en P y cuáles NP-completos.",
+    "links": [
+      {"label": "Wikipedia: Boolean satisfiability problem", "url": "https://en.wikipedia.org/wiki/Boolean_satisfiability_problem"},
+      {"label": "Wikipedia: Schaefer's dichotomy theorem", "url": "https://en.wikipedia.org/wiki/Schaefer%27s_dichotomy_theorem"}
+    ]
+  },
+  "quadratic-diophantine": {
+    "summary": "Dados a, b, c en binario, ¿existen enteros positivos x, y tales que ax² + by = c? Manders y Adleman demostraron que es NP-completo. Es sorprendente porque es una ecuación muy sencilla, y contrasta con el décimo problema de Hilbert, que en general es indecidible. Es una buena oportunidad para explicar por qué hay que tener cuidado con la codificación de los números (binario vs. unario).",
+    "links": [
+      {"label": "Wikipedia: Diophantine equation", "url": "https://en.wikipedia.org/wiki/Diophantine_equation"}
+    ]
+  },
+  "betweenness": {
+    "summary": "En Betweenness se dan ternas (a, b, c) y se busca un orden lineal de los elementos en el que, para cada terna, b quede entre a y c. En Cyclic Ordering se pide un orden cíclico en el que cada terna (a, b, c) aparezca en ese sentido. Ambos son NP-completos (Opatrny y Galil-Megiddo, respectivamente). Son problemas de ordenar con restricciones locales y aparecen en reconstrucción de secuencias y en biología computacional.",
+    "links": [
+      {"label": "Wikipedia: Cyclic order", "url": "https://en.wikipedia.org/wiki/Cyclic_order"}
+    ]
+  },
+  "scs-supersequence": {
+    "summary": "Dado un conjunto de cadenas, hay que encontrar una cadena lo más corta posible de la cual cada una de ellas sea subsecuencia (se pueden saltar caracteres). Maier demostró que es NP-completo, incluso con alfabetos pequeños como el binario. Se relaciona con el problema de la subsecuencia común más larga, y se usa en alineamiento de secuencias y planificación.",
+    "links": [
+      {"label": "Wikipedia: Shortest common supersequence", "url": "https://en.wikipedia.org/wiki/Shortest_common_supersequence"}
+    ]
+  },
+  "scs-superstring": {
+    "summary": "Dado un conjunto de cadenas, hay que encontrar la cadena más corta que contenga a cada una como subcadena (consecutiva). Gallant, Maier y Storer lo demostraron NP-completo. Es el modelo básico del ensamblado de genomas por secuenciación, donde los fragmentos leídos deben fusionarse en una sola secuencia. Se conocen buenos algoritmos de aproximación.",
+    "links": [
+      {"label": "Wikipedia: Shortest common superstring", "url": "https://en.wikipedia.org/wiki/Shortest_common_superstring"}
+    ]
+  },
+  "lcs-k-strings": {
+    "summary": "Para dos cadenas, la subsecuencia común más larga se calcula con programación dinámica en tiempo polinomial. Cuando el número de cadenas forma parte de la entrada, Maier demostró que el problema se vuelve NP-completo. Es un tema bueno para explicar por qué el algoritmo de dos cadenas no se generaliza (la tabla crece exponencialmente con k) y qué se hace en la práctica, como en bioinformática.",
+    "links": [
+      {"label": "Wikipedia: Longest common subsequence", "url": "https://en.wikipedia.org/wiki/Longest_common_subsequence"}
+    ]
+  },
+  "min-dfa-consistency": {
+    "summary": "Dados ejemplos positivos y negativos (cadenas aceptadas y rechazadas) y un entero k, ¿existe un autómata finito determinista con a lo más k estados que clasifique correctamente todos los ejemplos? Gold demostró que es NP-completo. Es el fundamento teórico de por qué aprender autómatas a partir de datos es difícil, y se conecta con la inferencia gramatical.",
+    "links": [
+      {"label": "Wikipedia: Induction of regular languages", "url": "https://en.wikipedia.org/wiki/Induction_of_regular_languages"},
+      {"label": "Gold (1978): Complexity of automaton identification from given data", "url": "https://doi.org/10.1016/S0019-9958(78)90562-4"}
+    ]
+  },
+  "linear-code-decoding": {
+    "summary": "Dado un código lineal (matriz de paridad H), un síndrome s y un entero w, ¿existe un error de peso a lo más w con síndrome s? Berlekamp, McEliece y van Tilborg demostraron que decodificar códigos lineales generales es NP-completo. Es la base de la criptografía basada en códigos (McEliece), que se considera resistente a computadoras cuánticas.",
+    "links": [
+      {"label": "Wikipedia: Syndrome decoding", "url": "https://en.wikipedia.org/wiki/Syndrome_decoding"},
+      {"label": "Wikipedia: Decoding methods", "url": "https://en.wikipedia.org/wiki/Decoding_methods"}
+    ]
+  },
+  "consecutive-ones": {
+    "summary": "Una matriz binaria tiene la propiedad de unos consecutivos si sus columnas se pueden reordenar de modo que en cada fila los unos queden juntos. Esto se decide en tiempo lineal con PQ-árboles. La versión de submatriz pide decidir si existe una submatriz con un número dado de columnas que tenga la propiedad; aparece como NP-completa en Garey y Johnson (SR14), con Booth como fuente. Aparece en mapeo físico de genomas y en modelado de intervalos.",
+    "links": [
+      {"label": "Wikipedia: PQ tree", "url": "https://en.wikipedia.org/wiki/PQ_tree"}
+    ]
+  },
+  "hp-protein-folding": {
+    "summary": "En el modelo HP, una proteína es una cadena de aminoácidos hidrofóbicos (H) y polares (P) que se pliega sobre una malla sin autointersecciones; interesa maximizar los contactos entre H no consecutivos. Es un modelo muy simplificado de la energía de plegamiento. Berger y Leighton lo demostraron NP-completo en la malla 3D cúbica, y Crescenzi et al. en la 2D. Es un buen puente entre complejidad y biología.",
+    "links": [
+      {"label": "Wikipedia: Hydrophobic-polar protein folding model", "url": "https://en.wikipedia.org/wiki/Hydrophobic-polar_protein_folding_model"}
+    ]
+  },
+  "sorting-by-reversals": {
+    "summary": "Una reversión invierte un segmento contiguo de una permutación. La distancia de reversión es el menor número de reversiones para pasar de una permutación a la identidad; modela mutaciones entre genomas de especies distintas. Caprara demostró que calcularla para permutaciones sin signo es NP-duro, mientras que para permutaciones con signo existe un algoritmo polinomial (Hannenhalli y Pevzner). Se parece al ordenamiento de panqueques, pero con reversiones en cualquier segmento.",
+    "links": [
+      {"label": "Wikipedia: Pancake sorting (reversiones de prefijos, caso relacionado)", "url": "https://en.wikipedia.org/wiki/Pancake_sorting"}
+    ]
+  },
+  "nash-constrained": {
+    "summary": "Calcular un equilibrio de Nash en un juego de dos jugadores es un problema de la clase PPAD, y no se sabe que sea NP-completo. Gilboa y Zemel muestran que, al pedir propiedades adicionales (por ejemplo, un equilibrio con pago mínimo para un jugador, o uno que sea único), las preguntas de decisión se vuelven NP-completas. Es un tema que conecta teoría de juegos y complejidad, y sirve para contrastar NP-completitud con PPAD.",
+    "links": [
+      {"label": "Wikipedia: Nash equilibrium", "url": "https://en.wikipedia.org/wiki/Nash_equilibrium"}
+    ]
+  }
+}

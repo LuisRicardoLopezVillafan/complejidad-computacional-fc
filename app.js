@@ -10,6 +10,8 @@
   let topics = [];
   let taken = new Set();
   let selected = null;
+  let details = {};
+  const expanded = new Set();
 
   async function rpc(fn, body) {
     const res = await fetch(`${SUPABASE_URL}/rest/v1/rpc/${fn}`, {
@@ -30,6 +32,34 @@
 
   async function refreshTaken() {
     taken = new Set(await rpc("taken_topics"));
+  }
+
+  function detailPanel(t) {
+    const d = details[t.id] || { summary: "", links: [] };
+    const panel = document.createElement("div");
+    panel.className = "details";
+    if (d.summary) {
+      const p = document.createElement("p");
+      p.textContent = d.summary;
+      panel.append(p);
+    }
+    const ul = document.createElement("ul");
+    const links = [...d.links, {
+      label: "Buscar el artículo original en Google Scholar",
+      url: `https://scholar.google.com/scholar?q=${encodeURIComponent(`${t.name} ${t.ref}`)}`,
+    }];
+    for (const l of links) {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = l.url;
+      a.textContent = l.label;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      li.append(a);
+      ul.append(li);
+    }
+    panel.append(ul);
+    return panel;
   }
 
   function render() {
@@ -53,16 +83,29 @@
         lastCat = t.category;
       }
       const isTaken = taken.has(t.id);
+      const isOpen = expanded.has(t.id);
       const row = document.createElement("div");
-      row.className = "topic" + (isTaken ? " taken" : "");
+      row.className = "topic" + (isTaken ? " taken" : "") + (isOpen ? " open" : "");
       const info = document.createElement("div");
+      info.className = "info";
+      info.tabIndex = 0;
+      info.setAttribute("role", "button");
+      info.setAttribute("aria-expanded", String(isOpen));
       const name = document.createElement("div");
       name.className = "name";
-      name.textContent = t.name;
+      name.textContent = `${isOpen ? "▾" : "▸"} ${t.name}`;
       const ref = document.createElement("div");
       ref.className = "ref";
       ref.textContent = t.ref;
       info.append(name, ref);
+      const toggle = () => {
+        if (expanded.has(t.id)) expanded.delete(t.id); else expanded.add(t.id);
+        render();
+      };
+      info.addEventListener("click", toggle);
+      info.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); }
+      });
       row.append(info);
       if (isTaken) {
         const b = document.createElement("span");
@@ -76,6 +119,7 @@
         btn.addEventListener("click", () => openDialog(t));
         row.append(btn);
       }
+      if (isOpen) row.append(detailPanel(t));
       list.append(row);
     }
     if (!visible.length) list.textContent = "No hay temas que coincidan.";
@@ -123,6 +167,7 @@
 
   async function init() {
     topics = await (await fetch("topics.json")).json();
+    details = await fetch("details.json").then((r) => r.json()).catch(() => ({}));
     const cats = [...new Set(topics.map((t) => t.category))];
     for (const c of cats) $("category").append(new Option(c, c));
     try {
