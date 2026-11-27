@@ -166,8 +166,8 @@
   }
 
   async function init() {
-    topics = await (await fetch("topics.json")).json();
-    details = await fetch("details.json").then((r) => r.json()).catch(() => ({}));
+    topics = await (await fetch("topics.json", { cache: "no-cache" })).json();
+    details = await fetch("details.json", { cache: "no-cache" }).then((r) => r.json()).catch(() => ({}));
     const cats = [...new Set(topics.map((t) => t.category))];
     for (const c of cats) $("category").append(new Option(c, c));
     try {
