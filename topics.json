@@ -13,6 +13,11 @@
   {"id": "flood-it", "name": "Flood-It", "category": "Juegos y rompecabezas", "ref": "Clifford, Jalsenius, Montanaro, Sach 2012"},
   {"id": "rubik", "name": "Cubo de Rubik n×n×n (solución óptima)", "category": "Juegos y rompecabezas", "ref": "Demaine, Eisenstat, Rudoy 2018"},
   {"id": "candy-crush", "name": "Candy Crush (NP-hard)", "category": "Juegos y rompecabezas", "ref": "Walsh 2014"},
+  {"id": "light-up", "name": "Light Up (Akari)", "category": "Juegos y rompecabezas", "ref": "McPhail 2005"},
+  {"id": "hashiwokakero", "name": "Hashiwokakero (Puentes)", "category": "Juegos y rompecabezas", "ref": "Andersson 2009"},
+  {"id": "numberlink", "name": "Numberlink", "category": "Juegos y rompecabezas", "ref": "Adcock et al. 2015"},
+  {"id": "sliding-puzzle", "name": "Puzzle deslizante (n²−1), solución más corta", "category": "Juegos y rompecabezas", "ref": "Ratner, Warmuth 1990"},
+  {"id": "freecell", "name": "FreeCell", "category": "Juegos y rompecabezas", "ref": "Helmert 2003"},
 
   {"id": "metric-dimension", "name": "Metric dimension", "category": "Grafos", "ref": "Khuller, Raghavachari, Rosenfeld 1996; Garey-Johnson GT61"},
   {"id": "minimum-fill-in", "name": "Minimum fill-in", "category": "Grafos", "ref": "Yannakakis 1981"},
@@ -28,6 +33,10 @@
   {"id": "postman", "name": "Rural Postman / Mixed Chinese Postman", "category": "Grafos", "ref": "Lenstra, Rinnooy Kan 1976; Papadimitriou 1976"},
   {"id": "unit-disk-is", "name": "Independent Set en unit disk graphs", "category": "Grafos", "ref": "Clark, Colbourn, Johnson 1990"},
   {"id": "rectilinear-steiner", "name": "Steiner tree rectilíneo", "category": "Grafos", "ref": "Garey, Johnson 1977"},
+  {"id": "cutwidth", "name": "Cutwidth", "category": "Grafos", "ref": "Gavril 1977"},
+  {"id": "min-bisection", "name": "Minimum Bisection", "category": "Grafos", "ref": "Garey, Johnson, Stockmeyer 1976"},
+  {"id": "constrained-shortest-path", "name": "Camino más corto con restricción de peso", "category": "Grafos", "ref": "Garey-Johnson ND30"},
+  {"id": "feedback-arc-set", "name": "Feedback Arc Set (incluso en torneos)", "category": "Grafos", "ref": "Karp 1972; Alon 2006; Charbit, Thomassé, Yeo 2007"},
 
   {"id": "planar-3sat", "name": "Planar 3-SAT", "category": "Lógica y teoría de números", "ref": "Lichtenstein 1982"},
   {"id": "1-in-3-sat", "name": "1-in-3 SAT y NAE-SAT", "category": "Lógica y teoría de números", "ref": "Schaefer 1978"},
@@ -42,5 +51,15 @@
   {"id": "consecutive-ones", "name": "Consecutive ones submatrix", "category": "Cadenas, autómatas, códigos y biología", "ref": "Booth 1975"},
   {"id": "hp-protein-folding", "name": "Plegamiento de proteínas (modelo HP)", "category": "Cadenas, autómatas, códigos y biología", "ref": "Berger, Leighton 1998; Crescenzi et al. 1998"},
   {"id": "sorting-by-reversals", "name": "Sorting by reversals (NP-hard)", "category": "Cadenas, autómatas, códigos y biología", "ref": "Caprara 1997"},
-  {"id": "nash-constrained", "name": "Equilibrio de Nash con restricción de pago", "category": "Teoría de juegos", "ref": "Gilboa, Zemel 1989"}
+  {"id": "pancake-sorting", "name": "Pancake sorting (ordenar con reversiones de prefijos)", "category": "Cadenas, autómatas, códigos y biología", "ref": "Bulteau, Fertin, Rusu 2012"},
+  {"id": "multiple-sequence-alignment", "name": "Alineamiento múltiple de secuencias", "category": "Cadenas, autómatas, códigos y biología", "ref": "Wang, Jiang 1994"},
+  {"id": "maximum-parsimony", "name": "Máxima parsimonia (filogenia)", "category": "Cadenas, autómatas, códigos y biología", "ref": "Foulds, Graham 1982"},
+  {"id": "nash-constrained", "name": "Equilibrio de Nash con restricción de pago", "category": "Teoría de juegos", "ref": "Gilboa, Zemel 1989"},
+  {"id": "kemeny-ranking", "name": "Ranking de Kemeny (agregación de preferencias)", "category": "Elección social y emparejamientos", "ref": "Bartholdi, Tovey, Trick 1989"},
+  {"id": "smti", "name": "Matrimonio estable con empates y listas incompletas", "category": "Elección social y emparejamientos", "ref": "Manlove, Irving, Iwama, Miyazaki, Morita 2002"},
+  {"id": "min-weight-triangulation", "name": "Triangulación de peso mínimo", "category": "Geometría, optimización y aprendizaje", "ref": "Mulzer, Rote 2008"},
+  {"id": "euclidean-tsp", "name": "TSP euclidiano", "category": "Geometría, optimización y aprendizaje", "ref": "Papadimitriou 1977; Garey, Graham, Johnson 1976"},
+  {"id": "k-means", "name": "k-means (clustering)", "category": "Geometría, optimización y aprendizaje", "ref": "Aloise et al. 2009; Mahajan, Nimbhorkar, Varadarajan 2009"},
+  {"id": "closest-vector", "name": "Closest Vector Problem (retículas)", "category": "Geometría, optimización y aprendizaje", "ref": "van Emde Boas 1981"},
+  {"id": "nn-training", "name": "Entrenar una red neuronal de 3 nodos", "category": "Geometría, optimización y aprendizaje", "ref": "Blum, Rivest 1992"}
 ]

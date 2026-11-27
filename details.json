@@ -258,5 +258,117 @@
     "links": [
       {"label": "Wikipedia: Nash equilibrium", "url": "https://en.wikipedia.org/wiki/Nash_equilibrium"}
     ]
+  },
+  "light-up": {
+    "summary": "Light Up (o Akari) se juega en una cuadrícula con casillas negras, algunas con un número. Hay que colocar bombillas en casillas blancas para que todas queden iluminadas (la luz recorre filas y columnas hasta una casilla negra), sin que dos bombillas se iluminen entre sí, y cada número debe coincidir con la cantidad de bombillas adyacentes. McPhail demostró que decidir si un tablero tiene solución es NP-completo, por reducción desde Circuit-SAT. Es un tema accesible con gadgets visuales.",
+    "links": [
+      {"label": "Wikipedia: Light Up (puzzle)", "url": "https://en.wikipedia.org/wiki/Light_Up_(puzzle)"}
+    ]
+  },
+  "hashiwokakero": {
+    "summary": "En Hashiwokakero hay islas numeradas en una cuadrícula y hay que trazar puentes horizontales y verticales entre ellas (a lo más dos entre el mismo par, sin cruzarse), de modo que cada isla tenga tantos puentes como indica su número y todas queden conectadas en una sola red. Andersson demostró que decidir si existe solución es NP-completo. El tema mezcla restricciones locales (grados) con una condición global (conexidad).",
+    "links": [
+      {"label": "Wikipedia: Hashiwokakero", "url": "https://en.wikipedia.org/wiki/Hashiwokakero"}
+    ]
+  },
+  "numberlink": {
+    "summary": "En Numberlink la cuadrícula tiene pares de casillas con el mismo número y hay que unir cada par con un camino, sin que los caminos se toquen ni se crucen (y, según la variante, cubriendo todas las casillas). Es una versión de enrutamiento de cables en una malla. Adcock et al. demostraron que la variante Zig-Zag Numberlink es NP-completa. Se conecta con disjoint paths, que para un solo par es fácil y con muchos pares se vuelve difícil.",
+    "links": [
+      {"label": "Wikipedia: Numberlink", "url": "https://en.wikipedia.org/wiki/Numberlink"},
+      {"label": "arXiv: Zig-Zag Numberlink is NP-Complete", "url": "https://arxiv.org/abs/1410.5845"}
+    ]
+  },
+  "sliding-puzzle": {
+    "summary": "El rompecabezas del 15 (y su generalización a tableros n×n) tiene fichas numeradas y un hueco; se deslizan fichas hacia el hueco para ordenarlas. Decidir si una configuración es alcanzable es sencillo (una cuestión de paridad de la permutación), así que encontrar alguna solución es fácil. Ratner y Warmuth demostraron que encontrar la solución más corta (o decidir si hay una de a lo más k movimientos) es NP-completo. Es un ejemplo claro de cómo 'existe solución' y 'solución óptima' pueden tener complejidades distintas.",
+    "links": [
+      {"label": "Wikipedia: 15 puzzle", "url": "https://en.wikipedia.org/wiki/15_puzzle"}
+    ]
+  },
+  "freecell": {
+    "summary": "FreeCell es un solitario de cartas en el que todas las cartas están a la vista desde el inicio, así que no hay azar durante la partida. Generalizado a n cartas por palo (y una cantidad arbitraria de columnas y celdas libres), decidir si se puede ganar es NP-completo según Helmert, quien lo incluyó en un estudio de dominios clásicos de planificación. Es un tema atractivo porque es un juego conocido que viene en Windows.",
+    "links": [
+      {"label": "Wikipedia: FreeCell", "url": "https://en.wikipedia.org/wiki/FreeCell"}
+    ]
+  },
+  "cutwidth": {
+    "summary": "El cutwidth pide ordenar los vértices de un grafo en una línea de modo que la máxima cantidad de aristas que cruzan cualquier 'corte' entre dos posiciones consecutivas sea lo menor posible. Gavril demostró que decidir si es a lo más k es NP-completo. Es primo de bandwidth y de linear arrangement: los tres ordenan vértices en una recta pero miden cosas distintas. Es un tema bueno para comparar las tres funciones de costo.",
+    "links": [
+      {"label": "Wikipedia: Cutwidth", "url": "https://en.wikipedia.org/wiki/Cutwidth"}
+    ]
+  },
+  "min-bisection": {
+    "summary": "Dado un grafo con un número par de vértices, hay que dividirlo en dos mitades del mismo tamaño de modo que la cantidad de aristas entre ambas mitades sea mínima. Es la versión 'balanceada' del corte mínimo, que sin la exigencia de equilibrio se resuelve en tiempo polinomial con flujos. Garey, Johnson y Stockmeyer demostraron que es NP-completo. Tiene usos en paralelización y en diseño de circuitos.",
+    "links": [
+      {"label": "Wikipedia: Graph partition", "url": "https://en.wikipedia.org/wiki/Graph_partition"}
+    ]
+  },
+  "constrained-shortest-path": {
+    "summary": "Cada arista tiene un costo y un peso (por ejemplo, distancia y tiempo, o dinero y riesgo). Se busca un camino entre dos nodos cuyo peso total no pase de un límite W y cuyo costo no pase de K. Sin el límite de peso es el camino más corto clásico, que está en P, pero con dos criterios se vuelve NP-completo (aparece en Garey y Johnson como ND30), por reducción desde Knapsack/Partition. Interesa en ruteo con calidad de servicio.",
+    "links": []
+  },
+  "feedback-arc-set": {
+    "summary": "Dado un grafo dirigido, hay que encontrar el menor conjunto de aristas cuya eliminación deja el grafo sin ciclos dirigidos. Karp lo incluyó en sus 21 problemas. Un caso especial interesante son los torneos (un grafo dirigido completo, donde cada par de vértices tiene exactamente una arista), en los que el problema sigue siendo NP-duro y equivale a ordenar a los participantes con el menor número de 'sorpresas'. Se relaciona con rankings y con la agregación de preferencias.",
+    "links": [
+      {"label": "Wikipedia: Feedback arc set", "url": "https://en.wikipedia.org/wiki/Feedback_arc_set"}
+    ]
+  },
+  "pancake-sorting": {
+    "summary": "Hay una pila de panqueques de distintos tamaños y la única operación es meter una espátula y voltear todos los de arriba (reversión de un prefijo). El objetivo es ordenarlos con el menor número de volteos. Bulteau, Fertin y Rusu demostraron que calcular la distancia mínima es NP-duro, lo que resolvía un problema abierto durante décadas. Es un tema ameno, ligado a sorting by reversals y al famoso trabajo de Gates y Papadimitriou sobre cotas.",
+    "links": [
+      {"label": "Wikipedia: Pancake sorting", "url": "https://en.wikipedia.org/wiki/Pancake_sorting"},
+      {"label": "arXiv: Pancake Flipping is Hard", "url": "https://arxiv.org/abs/1111.0434"}
+    ]
+  },
+  "multiple-sequence-alignment": {
+    "summary": "Alinear varias secuencias biológicas (ADN, proteínas) consiste en insertar espacios para que las columnas resultantes sean lo más parecidas posible según una función de puntuación, normalmente la suma de puntuaciones de todos los pares. Para dos secuencias hay programación dinámica, pero Wang y Jiang demostraron que, con un número arbitrario de secuencias, el problema es NP-duro. Por eso en la práctica se usan heurísticas progresivas.",
+    "links": [
+      {"label": "Wikipedia: Multiple sequence alignment", "url": "https://en.wikipedia.org/wiki/Multiple_sequence_alignment"}
+    ]
+  },
+  "maximum-parsimony": {
+    "summary": "Dadas las secuencias o caracteres de un conjunto de especies, la máxima parsimonia busca el árbol evolutivo que explique los datos con el menor número de mutaciones. Foulds y Graham demostraron que decidir si hay un árbol con a lo más k cambios es NP-completo. Su relación con el problema del árbol de Steiner en hipercubos lo hace un tema bonito entre biología y combinatoria.",
+    "links": [
+      {"label": "Wikipedia: Maximum parsimony (phylogenetics)", "url": "https://en.wikipedia.org/wiki/Maximum_parsimony_(phylogenetics)"}
+    ]
+  },
+  "kemeny-ranking": {
+    "summary": "Varios votantes ordenan a los candidatos por preferencia. El ranking de Kemeny es el orden total que minimiza la suma de desacuerdos por pares con los votantes. Es una forma muy natural de agregar preferencias y cumple propiedades deseables, pero Bartholdi, Tovey y Trick mostraron que calcularlo es NP-duro (decidir si hay un orden con desacuerdo total a lo más k es NP-completo). Es un tema de elección social computacional.",
+    "links": [
+      {"label": "Wikipedia: Kemeny–Young method", "url": "https://en.wikipedia.org/wiki/Kemeny%E2%80%93Young_method"}
+    ]
+  },
+  "smti": {
+    "summary": "En el problema del matrimonio estable clásico se asigna a cada persona de un lado una pareja del otro a partir de listas de preferencias estrictas, y existe siempre un emparejamiento estable que se encuentra con el algoritmo de Gale-Shapley. Si se permiten empates en las listas y personas que omiten candidatos (listas incompletas), los emparejamientos estables pueden tener tamaños distintos, y encontrar uno de tamaño máximo es NP-duro (Manlove et al.). Un tema bueno para ver cómo variantes pequeñas rompen un problema fácil.",
+    "links": [
+      {"label": "Wikipedia: Stable marriage problem", "url": "https://en.wikipedia.org/wiki/Stable_marriage_problem"}
+    ]
+  },
+  "min-weight-triangulation": {
+    "summary": "Dado un conjunto de puntos en el plano, hay que triangularlo (unirlos con segmentos sin cruces hasta cubrir su envolvente convexa) de modo que la suma de las longitudes de las aristas sea mínima. Fue durante décadas uno de los problemas abiertos de la lista de Garey y Johnson, hasta que Mulzer y Rote demostraron en 2008 que es NP-duro. La reducción es larga y geométricamente delicada, lo que lo hace un tema más difícil de exponer.",
+    "links": [
+      {"label": "Wikipedia: Minimum-weight triangulation", "url": "https://en.wikipedia.org/wiki/Minimum-weight_triangulation"}
+    ]
+  },
+  "euclidean-tsp": {
+    "summary": "Es el problema del viajante cuando las ciudades son puntos del plano y el costo es la distancia euclidiana. Papadimitriou y, de forma independiente, Garey, Graham y Johnson demostraron que es NP-duro, a pesar de la estructura geométrica. Hay un detalle sutil: no se sabe si la versión de decisión está en NP, porque comparar sumas de raíces cuadradas con un número no se sabe hacer en tiempo polinomial. Esto lo hace un buen tema sobre los límites de la definición de NP-completo.",
+    "links": [
+      {"label": "Wikipedia: Travelling salesman problem", "url": "https://en.wikipedia.org/wiki/Travelling_salesman_problem"}
+    ]
+  },
+  "k-means": {
+    "summary": "k-means busca dividir n puntos en k grupos de modo que la suma de las distancias cuadráticas de cada punto al centro de su grupo sea mínima. El algoritmo de Lloyd es muy popular pero solo encuentra óptimos locales. Aloise et al. demostraron que el problema es NP-duro en dimensión arbitraria con k = 2, y Mahajan, Nimbhorkar y Varadarajan que lo es incluso en el plano con k variable. Es un buen tema de conexión con aprendizaje automático.",
+    "links": [
+      {"label": "Wikipedia: k-means clustering", "url": "https://en.wikipedia.org/wiki/K-means_clustering"}
+    ]
+  },
+  "closest-vector": {
+    "summary": "Una retícula es el conjunto de combinaciones lineales enteras de unos vectores base. En el problema del vector más cercano (CVP) se da un punto objetivo y hay que encontrar el punto de la retícula más próximo a él. Van Emde Boas demostró que es NP-duro. Es el punto de partida de la criptografía basada en retículas, que se estudia como candidata a resistir computadoras cuánticas.",
+    "links": [
+      {"label": "Wikipedia: Lattice problem", "url": "https://en.wikipedia.org/wiki/Lattice_problem"}
+    ]
+  },
+  "nn-training": {
+    "summary": "Dado un conjunto de ejemplos etiquetados, ¿existen pesos para una red neuronal con solo tres nodos (dos ocultos y uno de salida, con umbrales) que clasifique correctamente todos? Blum y Rivest demostraron que es NP-completo, incluso para esa arquitectura mínima. No dice que entrenar redes grandes en la práctica sea imposible, sino que no hay un algoritmo eficiente para el caso peor. Es un tema bueno para ver cómo se aplica NP-completitud al aprendizaje automático.",
+    "links": []
   }
 }
